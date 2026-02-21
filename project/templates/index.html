@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rainfall Prediction</title>
+
+<style>
+body{
+background-image:url("https://wallpaperaccess.com/full/701614.jpg");
+background-size:cover;
+text-align:center;
+font-family:Arial;
+}
+
+.box{
+background:rgba(255,255,255,0.9);
+width:50%;
+margin:auto;
+margin-top:60px;
+padding:25px;
+border-radius:12px;
+}
+
+input,select{
+margin:6px;
+padding:8px;
+width:28%;
+}
+
+button{
+padding:10px 25px;
+background:green;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.error{
+color:red;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Rainfall Prediction</h1>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<form action="/predict" method="post">
+
+<label>Location:</label>
+<select name="Location">
+<option>Albury</option>
+<option>Sydney</option>
+<option>Melbourne</option>
+<option>Perth</option>
+</select>
+
+<br><br>
+
+<input name="MinTemp" placeholder="Min Temp" type="number" step="any" required>
+<input name="MaxTemp" placeholder="Max Temp" type="number" step="any" required>
+<input name="Rainfall" placeholder="Rainfall" type="number" step="any" required>
+
+<br>
+
+<input name="Humidity9am" placeholder="Humidity 9am" type="number" step="any" required>
+<input name="Humidity3pm" placeholder="Humidity 3pm" type="number" step="any" required>
+<input name="Pressure9am" placeholder="Pressure 9am" type="number" step="any" required>
+
+<br>
+
+<input name="Pressure3pm" placeholder="Pressure 3pm" type="number" step="any" required>
+
+<br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+</div>
+</body>
+</html>
